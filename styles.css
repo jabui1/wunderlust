@@ -69,7 +69,7 @@ h1, h2, h3 {
 	font-family: var(--heading-font);
 }
 
-h4, p, q, small, nav, button, form {
+h4, p, q, small, nav, button, form, footer a {
 	font-family: var(--body-font);
 }
 
@@ -86,8 +86,49 @@ header {
 	background-image: linear-gradient(var(--teal), var(--white));
 }
 /*fix later*/
-#menu-toggle {
+#toggle, nav ul {
 	display: none;
+}
+
+/*#menu-toggle {
+	display: grid;
+}*/
+
+#toggle ~ label {
+	background-color: var(--yellow);
+	text-transform: uppercase;
+	text-align: center;
+	padding: 1rem 2rem;
+	font-weight: 600;
+	/*grid-column: 4/5;*/
+}
+
+#toggle:checked ~ ul {
+	display: block;
+	background-color: var(--teal);
+	text-align: center;
+}
+
+#toggle:checked ~ label {
+	display: block;
+	text-align: center;
+	background-color: var(--black);
+	color: var(--white);
+	padding: 0 13.5rem;
+}
+
+#toggle:checked ~ ul li {
+	display: block;
+	text-transform: uppercase;
+	padding: 2rem 0;
+	border: 1px solid var(--black);
+}
+
+#toggle:checked ~ ul a {
+	display: block;
+	color: var(--black);
+	text-decoration: none;
+	font-weight: 600;
 }
 
 h1 {
@@ -186,3 +227,43 @@ h4 {
 	text-align: center;
 }
 
+#contact form label, #contact form input, #contact form select{
+	display: block;
+}
+
+#contact form label {
+	text-transform: uppercase;
+	font-weight: 600;
+	margin-top: 1rem;
+}
+
+#contact form input[type="text"], #contact form input[type="email"], #contact form input[type="tel"], #contact form select {
+	padding: 1rem;
+	width: 20rem;
+	border: 2px solid var(--purple);
+	margin: 0.5rem auto 1.5rem auto;
+}
+
+input[type="submit"] {
+	background-color: var(--purple);
+	color: var(--white);
+	text-transform: uppercase;
+	text-align: center;
+	width: 60%;
+	padding: 1.5rem 0.5rem;
+	margin: 0 auto;
+	border: 0;
+}
+
+footer {
+	background-color: var(--light-gray);
+	text-align: center;
+	padding: 2rem 0;
+}
+
+footer a {
+	display: block;
+	color: var(--black);
+	padding: 1rem 0 0.5rem 0;
+	text-decoration: none;
+}
