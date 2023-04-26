@@ -49,7 +49,6 @@ table {
 	border-spacing: 0;
 }
 
-/* global styles */
 @import url(https://fonts.google.com/share?selection.family=Molle:ital@1%7CMontserrat);
 
 :root {
@@ -85,14 +84,14 @@ h4, p, q, small, nav, button, form, footer a {
 header {
 	background-image: linear-gradient(var(--teal), var(--white));
 }
-/*fix later*/
+
 #toggle, nav ul {
 	display: none;
 }
 
-/*#menu-toggle {
+#menu-toggle {
 	display: grid;
-}*/
+}
 
 #toggle ~ label {
 	background-color: var(--yellow);
@@ -100,21 +99,25 @@ header {
 	text-align: center;
 	padding: 1rem 2rem;
 	font-weight: 600;
-	/*grid-column: 4/5;*/
+	grid-column: 4/5;
+	position: relative;
+	bottom: 13rem;
 }
 
 #toggle:checked ~ ul {
 	display: block;
+	position: relative;
+	bottom: 13rem;
 	background-color: var(--teal);
 	text-align: center;
 }
 
 #toggle:checked ~ label {
-	display: block;
+	grid-column: 1/-1;
 	text-align: center;
 	background-color: var(--black);
 	color: var(--white);
-	padding: 0 13.5rem;
+	padding: 1rem 13.5rem;
 }
 
 #toggle:checked ~ ul li {
@@ -138,7 +141,7 @@ h1 {
 
 h2 {
 	font-size: 2.5rem;
-	padding: 3rem 0 0.5rem 2.5rem;
+	padding: 0rem 0 0.5rem 2.5rem;
 }
 
 p {
@@ -154,6 +157,11 @@ h3 {
 
 h4 {
 	font-size: 1.5rem;
+}
+
+#img-grid {
+	margin-top: 1rem;
+	display: grid;
 }
 
 #plan{
@@ -183,7 +191,7 @@ h4 {
 }
 
 #plan img {
-	margin: 0 auto;
+	margin: 1rem 0 0 4rem;
 }
 
 #plan, #testimonials, #about, #contact {
@@ -216,6 +224,11 @@ h4 {
 	background-color: var(--blue);
 }
 
+#about h3 {
+	width: 50%;
+	margin-bottom: 1rem;
+}
+
 #about div {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -227,32 +240,51 @@ h4 {
 	text-align: center;
 }
 
-#contact form label, #contact form input, #contact form select{
+#contact form label, #contact form select{
 	display: block;
 }
 
-#contact form label {
+#contact form label:not(fieldset label), fieldset legend {
+	margin-left: 2.5rem;
 	text-transform: uppercase;
 	font-weight: 600;
 	margin-top: 1rem;
 }
 
 #contact form input[type="text"], #contact form input[type="email"], #contact form input[type="tel"], #contact form select {
+	display: block;
 	padding: 1rem;
-	width: 20rem;
+	width: 75%;
 	border: 2px solid var(--purple);
 	margin: 0.5rem auto 1.5rem auto;
 }
 
+fieldset label {
+	margin: 0.5rem auto 1.5rem auto;
+}
+
+input[type="radio"] {
+	background-color: var(--purple);
+	width: 30%;
+	height: 2.5rem;
+}
+
+#contact form select {
+	width: 83%;
+	padding: 1rem;
+}
+
 input[type="submit"] {
+	display: block;
 	background-color: var(--purple);
 	color: var(--white);
 	text-transform: uppercase;
 	text-align: center;
-	width: 60%;
-	padding: 1.5rem 0.5rem;
-	margin: 0 auto;
+	width: 83%;
+	padding: 1.5rem 1rem;
+	margin: 0.5rem auto;
 	border: 0;
+	font-size: 1rem;
 }
 
 footer {
@@ -266,4 +298,61 @@ footer a {
 	color: var(--black);
 	padding: 1rem 0 0.5rem 0;
 	text-decoration: none;
+}
+
+@media screen and (min-width: 650px){
+	header {
+		height: 20rem;
+	}
+
+	h1 {
+		display: inline;
+		position: relative;
+		bottom: 2.5rem;
+		right: 2.5rem;
+	}
+
+	header p {
+		position: relative;
+		left: 12rem;
+		bottom: 2rem;
+		width: 60%;
+	}
+
+	#toggle ~ label {
+		display: none;
+	}
+
+	nav ul {
+		display: block;
+		margin: 1rem auto;
+	}
+
+	nav li {
+		display: inline;
+		padding: 1rem;
+		background-color: var(--white);
+		margin: 0.5rem;
+	}
+
+	nav a {
+		text-decoration: none;
+		font-weight: 600;
+		text-transform: uppercase;
+		color: var(--black);
+	}
+
+	.active {
+		background-color: var(--yellow);
+	}
+
+	#img-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+
+}
+
+@media screen and (min-width: 700px) {
+
 }
