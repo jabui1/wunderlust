@@ -48,9 +48,12 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+/* end of css reset */
 
+/* small screen styles */
 @import url(https://fonts.google.com/share?selection.family=Molle:ital@1%7CMontserrat);
 
+/* brand guide */
 :root {
     --yellow: #F6D64A;
     --teal: #55BCD5;
@@ -72,6 +75,7 @@ h4, p, q, small, nav, button, form, footer a {
 	font-family: var(--body-font);
 }
 
+/* skip link and screen reader only */
 #skip, .sr-only {
 	position: absolute;
 	left: -10000px;
@@ -85,6 +89,7 @@ header {
 	background-image: linear-gradient(var(--teal), var(--white));
 }
 
+/* mobile nav toggle */
 #toggle, nav ul {
 	display: none;
 }
@@ -134,6 +139,11 @@ header {
 	font-weight: 600;
 }
 
+nav li:hover {
+	background-color: var(--yellow);
+}
+
+/* headings */
 h1 {
 	font-size: 3rem;
 	padding: 1rem 0 0.5rem 2.5rem;
@@ -144,12 +154,6 @@ h2 {
 	padding: 0rem 0 0.5rem 2.5rem;
 }
 
-p {
-	font-size: 1.3rem;
-	line-height: 1.7;
-	margin: 0 2.5rem;
-}
-
 h3 {
 	font-size: 2rem;
 	padding: 1.5rem 0 0.5rem 2.5rem;
@@ -157,13 +161,25 @@ h3 {
 
 h4 {
 	font-size: 1.5rem;
+	text-transform: uppercase;
+	font-weight: 600;
+	margin-top: 1rem;
 }
 
-#img-grid {
-	margin-top: 1rem;
+p {
+	font-size: 1.3rem;
+	line-height: 1.7;
+	margin: 0 2.5rem;
+}
+
+/* majorca */
+#img-grid img {
+	margin: 1.5rem auto;
+	width: 100vw;
 	display: grid;
 }
 
+/* plan your trip */
 #plan{
 	background-color: var(--yellow);
 	padding-bottom: 1rem;
@@ -191,13 +207,15 @@ h4 {
 }
 
 #plan img {
-	margin: 1rem 0 0 4rem;
+	width: 50%;
+	margin-left: 25%;
 }
 
 #plan, #testimonials, #about, #contact {
 	margin: 1rem auto;
 }
 
+/* testimonials */
 #testimonials section {
 	display: block;
 	text-align: center;
@@ -220,6 +238,7 @@ h4 {
 	font-style: italic;
 }
 
+/* about your destination */
 #about {
 	background-color: var(--blue);
 }
@@ -240,39 +259,66 @@ h4 {
 	text-align: center;
 }
 
-#contact form label, #contact form select{
+#about img {
+	width: 60%;
+	height: 50%;
+}
+
+/* contact us */
+.required {
+	color: var(--purple);
+}
+
+.form-required {
+	font-family: var(--body-font);
+	font-style: italic;
+	font-size: 1rem;
+}
+
+#contact form label, #selects label{
 	display: block;
 }
 
 #contact form label:not(fieldset label), fieldset legend {
-	margin-left: 2.5rem;
+	margin-left: 8%;
 	text-transform: uppercase;
 	font-weight: 600;
-	margin-top: 1rem;
+	margin-top: 1%;
 }
 
 #contact form input[type="text"], #contact form input[type="email"], #contact form input[type="tel"], #contact form select {
 	display: block;
 	padding: 1rem;
-	width: 75%;
+	width: 23rem;
 	border: 2px solid var(--purple);
 	margin: 0.5rem auto 1.5rem auto;
 }
 
+/* form radio */
 fieldset label {
-	margin: 0.5rem auto 1.5rem auto;
+	display: block;
+	margin: 1rem 0;
+}
+
+span.radio-label {
+	position: relative;
+	bottom: 1rem;
 }
 
 input[type="radio"] {
-	background-color: var(--purple);
-	width: 30%;
-	height: 2.5rem;
+	accent-color: var(--purple);
+	width: 25%;
+	height: 3rem;
 }
 
+/* form selects */
 #contact form select {
-	width: 83%;
+	width: 25rem;
 	padding: 1rem;
+	accent-color: var(--purple);
 }
+
+/* submit button */
 
 input[type="submit"] {
 	display: block;
@@ -280,29 +326,35 @@ input[type="submit"] {
 	color: var(--white);
 	text-transform: uppercase;
 	text-align: center;
-	width: 83%;
+	width: 25rem;
 	padding: 1.5rem 1rem;
 	margin: 0.5rem auto;
 	border: 0;
 	font-size: 1rem;
 }
 
+/* footer */
 footer {
 	background-color: var(--light-gray);
-	text-align: center;
 	padding: 2rem 0;
+	display: grid;
+	grid-column: 1/-1;
 }
 
-footer a {
+footer p, footer a {
+	text-align: center;
 	display: block;
 	color: var(--black);
 	padding: 1rem 0 0.5rem 0;
 	text-decoration: none;
 }
 
-@media screen and (min-width: 650px){
+/* medium screen styles */
+@media screen and (min-width: 750px){
+	/* header */
 	header {
 		height: 20rem;
+		padding-top: 1rem;
 	}
 
 	h1 {
@@ -319,6 +371,7 @@ footer a {
 		width: 60%;
 	}
 
+	/* nav */
 	#toggle ~ label {
 		display: none;
 	}
@@ -346,13 +399,228 @@ footer a {
 		background-color: var(--yellow);
 	}
 
+	/* majorca */
 	#img-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		margin: 0 2rem;
+		width: 95%;
+		column-gap: 2rem;
+	}
+
+	#img-grid img {
+		width: 100%;
+	}
+
+	#img-grid picture{
+		grid-column: 1/-1;
+		
+	}
+	
+	/* plan your trip */
+	#plan div {
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 0;
+	}
+
+	/* testimonials */
+	#testimonials div {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 	}
 
+	#testimonials section {
+		margin-top: 1rem;
+	}
+
+	/* about your destination */
+	#about div {
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+	}
+
+	#about img {
+		width: 50%;
+		height: 40%;
+	}
+
+	#about p {
+		font-size: 1rem;
+	}
+
+	#about h4 {
+		font-size: 1.3rem;
+	}
+
+	/* contact us */
+	#nums fieldset {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+
+	#contact form input[type="text"], #contact form input[type="email"], #contact form input[type="tel"], #contact form select {
+		width: 38rem;
+	}
+
+	#contact form select {
+		width: 40rem;
+	}
+
+	/* form radio */
+	.radio-input {
+		margin-left: 3rem;
+	}
+
+	input[type="radio"] {
+		width: 20%;
+	}
+
+	/* submit button */
+	input[type="submit"] {
+		width: 15rem;
+		margin-left: 28rem;
+	}
+
+	/* footer */
+	footer {
+		display: grid;
+		grid-template-columns: 2fr 1fr 1fr;
+	}
+
+	footer p, footer a {
+		font-size: 1rem;
+	}
+
+	footer a {
+		margin-top: 0.3rem;
+	}
 }
 
-@media screen and (min-width: 700px) {
+/* large screen styles */
+@media screen and (min-width: 1485px) {
+	/* header */
+	header {
+		padding-top: 1rem;
+		height: 15rem;
+	}
 
+	/* nav */
+	nav ul {
+		position: relative;
+		bottom: 10rem;
+		left: 30%;
+	}
+
+	/* majorca */
+	#intro {
+		display: grid;
+		grid-template-columns: 1fr 1.5fr;
+		width: 85%;
+		margin: 0 auto;
+	}
+
+	#intro p {
+		grid-column: 1/2;
+	}
+
+	#img-grid {
+		position: relative;
+		bottom: 4rem;
+	}
+
+	/* plan your trip */
+	#plan {
+		padding: 2rem 0;
+	}
+
+	#plan h3 {
+		margin-left: 7%;
+	}
+
+	#plan div {
+		width: 83%;
+		margin: 0 auto;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+	}
+
+	/* testimonials */
+	#testimonials {
+		width: 85%;
+		padding: 2rem 0;
+	}
+
+	#testimonials div {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+	}
+
+	#testimonials q {
+		width: 95%;
+		font-size: 1rem;
+	}
+
+	/* about your destination */
+	#about {
+		padding: 2rem 0;
+	}
+
+	#about h3 {
+		margin-left: 7%;
+	}
+
+	#about section {
+		width: 40%;
+		margin: 0 auto;
+	}
+
+	/* contact us */
+	form {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		margin: 0 auto;
+		column-gap: 1rem;
+	}
+
+	#names {
+		display: block;
+	}
+
+	#contact form input[type="text"], #contact form input[type="email"], #contact form input[type="tel"], #contact form select {
+		width: 75%;
+	}
+
+	#contact {
+		width: 85%;
+	}
+
+	.radio-input{
+		display: inline;
+	}
+
+	input[type="radio"] {
+		width: 20%;
+		margin-left: 0;
+		display: inline;
+	}
+	
+	#selects label {
+		padding-left: 5%;
+	}
+
+	/* submit button */
+	input[type="submit"] {
+		width: 10rem;
+		padding: 1rem;
+		margin-left: 55%;
+	}
+
+	/* footer */
+	footer{
+		display: grid;
+		grid-template-columns: 3fr 1fr 1fr;
+	}
+
+	footer p {
+		text-align: left;
+		margin-left: 5rem;
+	}
 }
